@@ -1,0 +1,18 @@
+# Ignorar banco de dadoos SQLite        
+db.sqlite3
+
+# Ignorar qualquer arquivo de segredos
+.secrets/
+
+# Ignorar arquivos compilados do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+
+# Ignorar configurações do IDE
+.vscode/
+
+# Ignorar arquivos de log
+*.log

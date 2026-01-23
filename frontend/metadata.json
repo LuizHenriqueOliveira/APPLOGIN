@@ -1,0 +1,5 @@
+{
+  "name": "Planner App",
+  "description": "Production planning web application with data management, visualization, and production proposal editing capabilities using MIP logic.",
+  "requestFramePermissions": []
+}

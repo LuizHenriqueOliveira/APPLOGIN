@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planner App</title>
+
+    <style>
+      /* Scrollbar e estilos base que não dependem do Tailwind */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3b4554;
+        border-radius: 4px;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+      }
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#f6f7f8] dark:bg-[#101822] text-slate-900 dark:text-white antialiased"
+  >
+    <div id="root"></div>
+    <!-- O Vite transformará este arquivo TSX em JS automaticamente -->
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>

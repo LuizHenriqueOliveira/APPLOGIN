@@ -1,0 +1,8 @@
+# Ignorar pasta de ambiente virtual
+.venv/
+
+# Ignorar configurações do IDE
+.vscode/
+
+# Ignorar arquivos de log
+*.log
