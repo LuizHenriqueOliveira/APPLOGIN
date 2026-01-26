@@ -12,6 +12,7 @@ import {
   ArrowRight,
   PieChart, // Usando PieChart como substituto para Analytics
   UserRound,
+  Eye,
 } from "lucide-react";
 
 export const Home = () => {
@@ -21,6 +22,7 @@ export const Home = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const { login, register } = useAuth();
   const navigate = useNavigate();
 
@@ -80,14 +82,22 @@ export const Home = () => {
             <p className="text-slate-500 dark:text-slate-400 text-lg">
               Acesse seu dashboard de planejamento.
             </p>
+            <p className="text-red-600 text-sm mt-2 font-medium" role="alert">
+              {" "}
+              {error}{" "}
+            </p>
           </div>
-
+          {/*Formulário de login */}
           <form className="flex flex-col gap-5" onSubmit={handleLogin}>
+            {/* Campo de usuário */}
             <div className="flex flex-col gap-1.5">
-              <label className="text-sm font-semibold ml-1">User</label>
+              <label htmlFor="username" className="text-sm font-semibold ml-1">
+                User
+              </label>
               <div className="relative">
                 <UserRound className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
                 <input
+                  id="username"
                   className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-surface-dark py-3 pl-12 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none h-12 transition-all"
                   type="text"
                   value={username}
@@ -96,9 +106,12 @@ export const Home = () => {
                 />
               </div>
             </div>
+            {/* Campo de senha */}
             <div className="flex flex-col gap-1.5">
               <div className="flex justify-between px-1">
-                <label className="text-sm font-semibold">Senha</label>
+                <label htmlFor="password" className="text-sm font-semibold">
+                  Senha
+                </label>
                 <a
                   className="text-sm font-semibold text-primary hover:underline"
                   href="#"
@@ -109,8 +122,9 @@ export const Home = () => {
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
                 <input
+                  id="password"
                   className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-surface-dark py-3 pl-12 pr-12 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none h-12 transition-all"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -118,8 +132,13 @@ export const Home = () => {
                 <button
                   type="button"
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"
+                  onClick={() => setShowPassword(!showPassword)}
                 >
-                  <EyeOff className="h-5 w-5" />
+                  {showPassword ? (
+                    <EyeOff className="h-5 w-5" />
+                  ) : (
+                    <Eye className="h-5 w-5" />
+                  )}
                 </button>
               </div>
             </div>
